@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">    
+        <title>Roomie</title>
+       <style>
+        *{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .logo{
+            text-align: center;
+            margin-top: 150px;
+            margin-bottom: 70px;
+            position: relative;
+        }
+        .loginBody{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        fieldset{
+            width: 350px;
+            height: 120px;
+            border: 1px solid lightgray;
+            border-radius: 10px;
+            padding: 0px 10px 0px 10px;
+            text-align: center;
+        }
+        input{
+            border: 0px;
+            padding: 20px;
+            width: 330px;
+        }
+        input:focus{
+            outline: none;
+        }
+        .idinput{
+            border-bottom: 1px solid lightgray;
+        }
+        .submit{
+            width: 375px;
+            margin-top: 80px;
+            background-color: #01BBA1;
+            border-radius: 10px;
+            color:white;
+            font-size: large;
+        }
+        footer{
+            margin-top: 370px;
+            padding-top: 20px;
+            text-align: center;
+            color: gray;
+            font-size: small;
+        }
+       </style>
+    </head>
+    <body>
+        <div class="logo">
+            <img src="image/Group 101.svg" width="300" height="100">
+        </div>
+        <div class="loginBody">
+            <fieldset>
+                <form>
+                    <input type="text" class="idinput" placeholder="아이디를 입력하세요"> 
+                    <input type="text" class="password" placeholder="비밀번호를 입력하세요">
+                </form>
+            </fieldset>
+            <input class="submit" type="submit" value="LOGIN" id="loginButton">
+        </div>
+        <footer>COPYRIGHT ⓒ SKKUROOMIE ALL RIGHTS Reserved.</footer>
+        <script src="login.js"></script>
+    </body>
+</html>

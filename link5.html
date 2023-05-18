@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+  <title>설문페이지</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-left: 20px;
+      background-color: #0db270;
+      color: whitesmoke;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background-color 0.2s;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: small;
+      
+    }
+
+    .link-button:hover {
+      background-color: rgba(30, 36, 201, 0.618);
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    header {
+      background: white;
+      color: #292929;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid rgb(238, 238, 238);
+    }
+
+
+    .login-btn {
+      background-color: #f8f8ec;
+      border: none;
+      border-radius: 3px;
+      color: #333;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      padding: 0.57rem 1rem;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-evenly;
+    }
+
+    .menu-item {
+      margin-right: 1rem;
+    }
+
+    .menu-link {
+      color: rgb(64, 64, 64);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+    }
+
+    .menu-link:hover {
+      text-decoration: none;
+      color: blueviolet;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .main{
+      flex: 3;
+      margin-right: 2rem;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .container1 {
+      margin: 0;
+      height: auto;
+      align-items: center;
+      justify-content: space-around;
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      font-size: larger;
+      text-align: center;
+    }
+
+    .container2 {
+      margin: 0;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: larger;
+      
+    }
+
+    .title{
+      margin: 10px 0px 10px 30px;
+      font-weight: 700;
+      font-size: 35px;
+      background: #00f260; /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color: transparent;
+      -webkit-background-clip: text;
+    }
+    label {
+      font-size: 20px;
+      line-height: 2rem;
+      padding: 0.2em 0.4em;
+    }
+
+    span {
+      vertical-align: middle;
+    }
+
+    [type="checkbox"] {
+      vertical-align: middle;
+      appearance: none;
+      border: max(1px, 0.1em) solid gray;
+      border-radius: 50%;
+      width: 3.25em;
+      height: 3.25em;
+      transition: border 0.5s ease-in-out;
+    }
+
+    [type="checkbox"]:checked {
+      border: 0.4em solid #0db270;
+    }
+
+    [type="checkbox"]:focus-visible {
+      outline-offset: max(2px, 0.1em);
+      outline: max(2px, 0.1em) dotted #0db270;
+    }
+
+    [type="checkbox"]:hover {
+      box-shadow: 0 0 0 max(4px, 0.2em) #0575e6;
+      cursor: pointer;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">Roomie</h1>
+    <ul class="menu">
+        <li class="menu-item"><a class="menu-link" href="link1.html">Home</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">About</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Blog</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
+    </ul>
+    <div class="login-form">
+        <button class="login-btn">Logout</button>
+    </div>
+  </header>
+  <nav>
+
+  </nav>
+  <div class="container1">
+    <br/>
+  </div>
+  <div class="container1">
+    <div>
+      <img src="Image/Group 101.svg" />
+    </div>
+  </div>
+  <div class="container1">
+    <div>
+      <p>이번에는 원하시는 월세 가격대를 여쭤볼께요</p>
+      <p>이번에도 복수선택이 가능해요! 원하시는 가격대는 다 눌러주세요!</p>
+      <p>단위는 만원이에요</p>
+    </div>
+  </div>
+  <div class="container2">
+    <div>
+      <label>
+        <input type="checkbox" name="option1" value="아파트"  />
+        <span>~50</span>
+      </label>
+      <label>
+        <input type="checkbox" name="option2" value="오피스텔" />
+        <span>50~100</span>
+      </label>
+      <label>
+        <input type="checkbox" name="option3" value="원룸"  />
+        <span>100~250</span>
+      </label> 
+      <label>
+        <input type="checkbox" name="option4" value="투룸이상" />
+        <span>250~</span>
+      </label>
+        <a href="link6.html" class="link-button">NEXT</a>
+    </div>
+  </div>
+  <script>
+  </script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <title>Roomie</title>
+    <style>
+        *{
+          font-family: 'Noto Sans KR', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: white;
+            color: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid rgb(238, 238, 238);
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ad32ff+0,ce26ef+31,2989d8+59,ff89ba+100 */
+
+
+        }
+
+        .login-btn {
+            background-color: #ffffff;
+            /* box-shadow: 0px 1px 5px rgb(246, 245, 245); */
+            /* border: 1px solid rgb(230, 235, 246); */
+            border: none;
+            border-radius: 6px;
+            color: #333;
+            cursor: pointer;
+            padding: 0.57rem 1rem;
+            margin-right: 30px;
+        }
+        .login-btn:hover{
+          color: rgb(43, 104, 226);
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0px 0px 0px 00px;
+            padding: 0;
+            justify-content: space-evenly;
+
+        }
+
+        .menu-item {
+            margin-right: 1rem;
+        }
+
+        .menu-link {
+            color: rgb(64, 64, 64);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+        }
+
+        .menu-link:hover {
+            text-decoration: none;
+            color: rgb(43, 104, 226);
+        }
+
+        .home{
+          color: rgb(43, 104, 226);
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .main {
+            flex: 2;
+        }
+        .title{
+          margin: 10px 0px 10px 30px;
+          font-weight: 700;
+          font-size: 35px;
+          background: #00f260; /* fallback for old browsers */
+          background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          color: transparent;
+          -webkit-background-clip: text;
+        }
+        #logoutForm h4{
+          margin: 0px 15px 0px 0px;
+        }
+        #logoutForm {
+          display: flex;
+          align-items: center;
+        }
+
+        /* sidebar */
+        .sidebar {
+            flex: 1;
+            overflow-y: scroll;
+        }
+
+        .sidebar-ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0px;
+            /* margin-top: 60px;  */
+            position:relative;
+        }
+        .sidebar-link:hover {
+            text-decoration: underline;
+        }
+        .sidebar-list{
+          border-bottom: 1px solid #ebf1ef;
+          padding: 20px 20px 0px 20px;
+
+        }
+        .sidebar-list:hover{
+          background-color: #f1f8f6;
+        }
+        .sidebar h4{
+          margin: 0px 0px 0px 0px;
+          padding: 20px 20px 20px 20px;
+          font-weight: 1000;
+          background-color: white;
+          box-shadow: 2px 2px 15px rgb(247, 246, 246);
+          
+        }
+        .sidebar h5{
+          /* position: absolute; */
+          text-align: center;
+          /* bottom: 0; */
+          color: rgb(109, 108, 108);
+          /* width: 100%; */
+          /* margin-bottom: 30px; */
+        }
+
+        .image{
+          display: inline-block;
+          vertical-align: middle;
+          margin-bottom: 10px;
+        }
+        .image img{
+          border-radius: 60px;
+        }
+        .profile{
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 15px;
+          height: 80px;
+        }
+        .info span:nth-child(1){
+          padding-left: 5px;
+          font-size: 15px;
+          font-weight: 700;
+        }
+        .info span:nth-child(2){
+          color: #A09797;
+          font-size: 11px;
+          padding-left: 5px;
+
+        }
+        .info span:nth-child(3){
+          color: #A09797;
+          font-size: 11px;
+          padding-left: 3px;
+
+        }
+        .info span:nth-child(4){
+          color: #A09797;
+          font-size: 11px;
+          padding-left: 3px;
+
+        }
+        .tags{
+          margin: 15px 5px 0px 0px;
+          font-size: 11px;
+          color: white;
+        }
+        .tags span{
+          background-color: #57cc95;
+          padding:5px 8px 5px 8px;
+          margin-right: 3px;
+          border-radius: 20px;
+        }
+
+        /* detailProfile */
+        .picture{
+          position: relative;
+          margin-bottom: 30px;
+        }
+        .picture #arrow{
+          position: absolute;
+          z-index: 3;
+          margin: 20px 0px 0px 10px;
+        }
+        .picture #arrow ::after{
+          color:white
+        }
+        .textDiv{
+          margin:0px 20px 0px 20px;
+        }
+        .locaTime{
+          font-size: 14px;
+          color: #9c9c9c;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+        }
+        .name{
+          font-size: 20px;
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+        .extrainfo{
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+        .detailTags{
+          margin: 0px 20px 10px 20px;
+          position: relative;
+        }
+        .detailTags span{
+          font-size: 13px;
+          border-radius: 15px;
+          border:1px solid #01BBA1;
+          padding: 3px 8px 3px 8px;
+          margin-right: 5px;
+        }
+        .buttons{
+          margin: 0px 20px 0px 20px;
+        }
+        .chatDiv{
+          position: absolute;
+          bottom: 0;
+          margin-bottom: 30px;
+        }
+        .chatDiv button{
+          height: 50px;
+          border: 0px;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 500;
+          color:white;
+          background-color:#01BBA1;
+        }
+        .heartDiv{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 0px 0px 32px 0px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class = "title">Roomie</h1>
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link home" href="main수정6.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link about" href="introduce.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Blog</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
+        </ul>
+        <div class="loginForm">
+          <button class="login-btn" id="loginButton">LOGIN</button>
+            <div id="logoutForm">
+              <h4></h4>
+              <h5>|</h5>
+              <button class="login-btn" id="logoutButton">LOGOUT</button>
+            </div>
+        </div>
+    </header>
+    <nav>
+        
+    </nav>
+    <div class="container">
+        <div class="main">
+            <head>
+                <meta charset="utf-8">
+                <title>google지도</title>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.min.js"></script>
+                <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+                <style>
+                  #search-box {
+                    
+                    position: absolute;
+                    top: 200px;
+                    left: 40px;
+                    width: 400px;
+                    height: 40px;
+                    z-index: 1;
+                    box-sizing: border-box;
+                    border: 2px solid #ccc;
+                    border-radius: 4px;
+                    font-size: 16px;
+                    background-color: rgb(251, 246, 237);
+                    background-image: url('https://www.gstatic.com/images/icons/material/system/1x/search_grey600_24dp.png');
+                    background-size: 20px 20px;
+                    background-position: 10px 8px;
+                    background-repeat: no-repeat;
+                    padding: 5px 40px 5px 40px;
+                    -webkit-transition: width 0.4s ease-in-out;
+                    transition: width 0.4s ease-in-out;
+                  }
+            
+                  #search-box:focus {
+                    width: 40%;
+                  }
+                </style>
+              </head>
+              <body>
+                <div id="search-container">
+                  <input id="search-box" type="text" placeholder="지역，지하철역，학교 검색">
+                </div>
+                <div id="map" style="width: 1100px;"></div>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4f4_WV7kLLXPf45FdPyz2fS4l6LL8Izo&libraries=places&callback=initMap&language=ko"></script>
+                <script>
+                  function initMap() {
+
+                    const userIndex = localStorage.getItem('index');
+                    const localData = JSON.parse(localStorage.getItem(userIndex));
+                    const location = localData ? localData.location : ''
+
+                    var mapOptions = {
+                    center: location === '혜화' ? { lat: 37.587, lng: 127.001 }
+                          : location === '성수' ? { lat: 37.5447, lng: 127.0578 }
+                          : { lat: 37.5882, lng: 126.9936 },
+
+                    zoom: 14,
+                    };
+
+                    const innerHeight = window.innerHeight;
+
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions); 
+
+                    const mapStyle = document.getElementById('map');
+                    mapStyle.style.height = `${innerHeight - 103.5}px`;
+
+                    var locations = [
+                      { lat: 37.5882, lng: 126.9936, number: 1 },
+                    ];
+            
+                    initSearchBox(map);
+                    addMarkers(map, locations);
+                  }
+            
+                  function initSearchBox(map) {
+                    var searchBox = new google.maps.places.Autocomplete(
+                      document.getElementById("search-box")
+                    );
+            
+                    searchBox.bindTo("bounds", map);
+            
+                    searchBox.addListener("place_changed", function () {
+                      var place = searchBox.getPlace();
+            
+                      if (!place.geometry) {
+                        console.log("찾지 못했습니다😭");
+                        return;
+                      }
+            
+                      map.setCenter(place.geometry.location);
+                      map.setZoom(15);
+                    });
+                  }
+            
+                  function createClusterIcon(number) {
+                    var fontSize = 12;
+                    var iconWidth = 30;
+                    var iconHeight = 30;
+            
+                    var canvas = document.createElement("canvas");
+                    canvas.width = iconWidth;
+                    canvas.height = iconHeight;
+                    var context = canvas.getContext("2d");
+            
+                    context.beginPath();
+                    context.arc(iconWidth / 2, iconHeight / 2, iconWidth / 2, 0, 2 * Math.PI);
+                    context.fillStyle = "#FFA500";
+                    context.fill();
+            
+                    context.font = fontSize + "px Arial";
+                    context.fillStyle = "white";
+                    context.textAlign = "center";
+                    context.textBaseline = "middle";
+                    context.fillText(1, iconWidth / 2, iconHeight / 2);
+            
+                    return canvas.toDataURL();
+                  }
+            
+                  function addMarkers(map, locations) {
+                    var markers = locations.map(function (location) {
+                      return new google.maps.Marker({
+                        position: { lat: location.lat, lng: location.lng },
+                        icon: {
+                          url: createClusterIcon(location.number),
+                          size: new google.maps.Size(30, 30),
+                          origin: new google.maps.Point(0, 0),
+                          anchor: new google.maps.Point(15, 15),
+                        },
+                        title: "Number: " + location.number,
+                      });
+                    });
+            
+              
+                    var markerCluster = new MarkerClusterer(map, markers, {
+                      imagePath:
+                        "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+                      gridSize: 60,
+                      minimumClusterSize: 1,
+                      styles: [
+                        {
+                          url: createClusterIcon(1), 
+                          width: 30,
+                          height: 30,
+                        
+                          textSize: 0,
+                          anchor: [15, 15]
+                        }
+                      ]
+                    });
+            }
+            
+            
+            
+                </script>
+              </body>
+            <!-- Main content goes here -->
+        </div>
+        <div class="sidebar">
+            <h4></h4>
+            <ul class="sidebar-ul">
+            </ul>
+            <h5></h5>
+    </div>
+  </div>
+  <script src="sidebar.js"></script>
+</body>
+</html>
+
+<!-- 1512 -->

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontally Evenly Spread Buttons</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .link-button {
+      display: inline-block;
+      padding: 50px 100px;
+      background-color: #c2c275;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .link-button:hover {
+      background-color: #c333;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+
+    .login-form {
+      display: flex;
+      align-items: center;
+    }
+
+    .login-input {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-left: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .login-btn {
+      background-color: #c2c275;
+      border: none;
+      border-radius: 3px;
+      color: #333;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      padding: 0.57rem 1rem;
+    }
+
+    .menu {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-evenly;
+    }
+
+    .menu-item {
+      margin-right: 1rem;
+    }
+
+    .menu-link {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 1rem;
+    }
+
+    .menu-link:hover {
+      text-decoration: underline;
+    }
+
+    .main{
+      flex: 3;
+      margin-right: 2rem;
+    }
+
+    .container1 {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: auto;
+      align-items: center;
+      justify-content: space-around;
+      display: flex;
+      font-size: larger;
+    }
+
+    .container2 {
+      margin: 0;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      font-family: Arial, sans-serif;
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Roomie</h1>
+    <ul class="menu">
+        <li class="menu-item"><a class="menu-link" href="#">Home</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">About</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Blog</a></li>
+        <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
+    </ul>
+    <div class="login-form">
+        <input class="login-input" type="text" placeholder="ID">
+        <input class="login-input" type="password" placeholder="Password">
+        <button class="login-btn">Login</button>
+    </div>
+  </header>
+  <nav>
+
+  </nav>
+  <div>
+    <br/>
+  </div>
+  <div class="container1">
+    <div>
+      <img src="http://placehold.it/1000x100" />
+    </div>
+  </div>
+  <div class="container1">
+    <div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </div>
+  <div class="container2">
+    <div>
+      <a href="#" class="link-button">Gangnam</a>
+      <a href="#" class="link-button">Hyehwa</a>
+      <a href="#" class="link-button">Sinchon</a>
+      <a href="#" class="link-button">Seongsu</a>
+    </div>
+  </div>
+  <script>
+    document.querySelector('.login-btn').addEventListener('click', () => {
+            // Implement login functionality here
+            alert('Currently preparing the service ! Sorry for the inconvenience !');
+        });
+  </script>
+</body>
+</html>

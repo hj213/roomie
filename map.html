@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>googel지도</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/markerclustererplus/2.1.4/markerclusterer.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <style>
+      #search-box {
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        width: 400px;
+        height: 40px;
+        z-index: 1;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        background-color: white;
+        background-image: url('https://www.gstatic.com/images/icons/material/system/1x/search_grey600_24dp.png');
+        background-size: 20px 20px;
+        background-position: 10px 8px;
+        background-repeat: no-repeat;
+        padding: 5px 40px 5px 40px;
+        -webkit-transition: width 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
+      }
+
+      #search-box:focus {
+        width: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="search-container">
+      <input id="search-box" type="text" placeholder="지역，지하철역，학교 검색">
+    </div>
+    <div id="map" style="width: 1200px; height: 900px;"></div>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4f4_WV7kLLXPf45FdPyz2fS4l6LL8Izo&libraries=places&callback=initMap&language=ko"></script>
+
+    <script>
+      function initMap() {
+        var mapOptions = {
+          center: { lat: 37.5665, lng: 126.9780 },
+          zoom: 10,
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+        var locations = [
+          { lat: 37.5665, lng: 126.9780, number: 10 },
+          { lat: 37.5777, lng: 126.9890, number: 20 },
+          { lat: 37.5558, lng: 126.9950, number: 30 },
+          { lat: 37.5675, lng: 126.9710, number: 10 },
+          { lat: 37.5577, lng: 126.9820, number: 20 },
+          { lat: 37.5455, lng: 126.9930, number: 30 },
+          // 其他位置数据...
+        ];
+
+        initSearchBox(map);
+        addMarkers(map, locations);
+      }
+
+      function initSearchBox(map) {
+        var searchBox = new google.maps.places.Autocomplete(
+          document.getElementById("search-box")
+        );
+
+        searchBox.bindTo("bounds", map);
+
+        searchBox.addListener("place_changed", function () {
+          var place = searchBox.getPlace();
+
+          if (!place.geometry) {
+            console.log("没有找到该地点的详细信息。");
+            return;
+          }
+
+          map.setCenter(place.geometry.location);
+          map.setZoom(15);
+        });
+      }
+
+      function createClusterIcon(number) {
+        var fontSize = 12;
+        var iconWidth = 30;
+        var iconHeight = 30;
+
+        var canvas = document.createElement("canvas");
+        canvas.width = iconWidth;
+        canvas.height = iconHeight;
+        var context = canvas.getContext("2d");
+
+        context.beginPath();
+        context.arc(iconWidth / 2, iconHeight / 2, iconWidth / 2, 0, 2 * Math.PI);
+        context.fillStyle = "#FFA500";
+        context.fill();
+
+        context.font = fontSize + "px Arial";
+        context.fillStyle = "white";
+        context.textAlign = "center";
+        context.textBaseline = "middle";
+        context.fillText(number, iconWidth / 2, iconHeight / 2);
+
+        return canvas.toDataURL();
+      }
+
+      function addMarkers(map, locations) {
+        var markers = locations.map(function (location) {
+          return new google.maps.Marker({
+            position: { lat: location.lat, lng: location.lng },
+            icon: {
+              url: createClusterIcon(location.number),
+              size: new google.maps.Size(30, 30),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(15, 15),
+            },
+            title: "Number: " + location.number,
+          });
+        });
+
+        // 添加地图标记聚合器
+        var markerCluster = new MarkerClusterer(map, markers, {
+          imagePath:
+            "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
+        });
+      }
+    </script>
+  </body>
+</html>

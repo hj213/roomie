@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
+    <title>Roomie</title>
+    <style>
+        *{
+          font-family: 'Noto Sans KR', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: white;
+            color: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid rgb(238, 238, 238);
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ad32ff+0,ce26ef+31,2989d8+59,ff89ba+100 */
+
+
+        }
+        .title{
+          margin: 10px 0px 10px 30px;
+          font-weight: 700;
+          font-size: 35px;
+          background: #00f260; /* fallback for old browsers */
+          background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 10-25, Safari 5.1-6 */
+          background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          color: transparent;
+          -webkit-background-clip: text;
+        }
+
+        .login-btn {
+            background-color: #f8f8ec;
+            border: none;
+            border-radius: 3px;
+            color: #333;
+            cursor: pointer;
+            padding: 0.57rem 1rem;
+            margin-right: 30px;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0px 0px 0px 00px;
+            padding: 0;
+            justify-content: space-evenly;
+
+        }
+
+        .menu-item {
+            margin-right: 1rem;
+        }
+
+        .menu-link {
+            color: rgb(64, 64, 64);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+        }
+
+        .menu-link:hover {
+            text-decoration: none;
+            color: rgb(43, 104, 226);
+        }
+
+        .about{
+          color: rgb(43, 104, 226);
+        }
+        .main {
+            margin: 0 auto;
+            position: absolute; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 1200px; 
+        }
+        .hj{
+            width: 300px;
+            float: left;
+        }
+        .imageCircle{
+            width: 180px;
+            height: 180px;
+            border-radius: 100px;
+            overflow: hidden;
+            box-shadow: -0px 0px 15px rgb(219, 218, 218);
+            margin: 0px 0px 30px 60px;
+        }
+        .text{
+            text-align: center;
+        }
+        .text div{
+            margin: 0px 0px 5px 0px;
+        }
+        .name {
+            font-size: 20px;
+            font-weight: 1000;
+        }
+        .studentId{
+            font-size: 18px;
+            font-weight: 1000;
+        }
+        .gm{
+            width: 300px;
+            float: left;
+        }
+        .gy{
+            width: 300px;
+            float: left;
+        }
+        .jh{
+            width: 300px;
+            float: left;
+        }
+        footer{
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 50px;
+            text-align: center;
+            color: gray;
+            font-size: small;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class = "title">Roomie</h1>
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link home" href="main수정6.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link about" href="introduce.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Blog</a></li>
+            <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
+        </ul>
+        <div class="login-form">
+            <button class="login-btn">Logout</button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main">
+            <div class="hj">
+                <div class="imageCircle">
+                    <img src = 'image/hj.PNG' width="190" height="190">
+                </div> 
+                <div class="text">
+                    <div class="name">윤효정</div>
+                    <div class="studentId" >2019312137</div>
+                    <div class="role" >맡은 역할?! 뭐 만듦 뭐 만듦 어쩌구</div>
+                </div> 
+    
+            </div>
+            <div class="gm">  
+                <div class="imageCircle">
+                    <img src = 'image/hj.PNG' width="190" height="190">
+                </div> 
+                <div class="text">
+                    <div class="name">이광민</div>
+                    <div class="studentId" >2019312137</div>
+                    <div class="role" >맡은 역할?! 뭐 만듦 뭐 만듦 어쩌구</div>
+                </div> 
+            </div>
+            <div class="gy">  
+                <div class="imageCircle">
+                    <img src = 'image/hj.PNG' width="190" height="190">
+                </div> 
+                <div class="text">
+                    <div class="name">채가예</div>
+                    <div class="studentId" >2021315404</div>
+                    <div class="role" >맡은 역할?! 뭐 만듦 뭐 만듦 어쩌구</div>
+                </div> 
+            </div>
+            <div class="jh">
+                <div class="imageCircle">
+                    <img src = 'image/hj.PNG' width="190" height="190">
+                </div> 
+                <div class="text">
+                    <div class="name">최지희</div>
+                    <div class="studentId" >2018311226</div>
+                    <div class="role" >맡은 역할?! 뭐 만듦 뭐 만듦 어쩌구</div>
+                </div> 
+            </div>  
+        </div>
+        
+
+        </div>
+    </div>
+    <footer>COPYRIGHT ⓒ SKKUROOMIE ALL RIGHTS Reserved.</footer>
+</body>
+</html>
