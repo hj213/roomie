@@ -1,4 +1,4 @@
-<img src = "image/Grouo 101.svg">
+<img src = "image/Group 101.svg">
 <h3>✨ 프로젝트 소개</h3>
 함께 거주할 사람(룸메이트/하우스메이트)를 찾을 수 있는 토이 프로젝트입니다.
 
