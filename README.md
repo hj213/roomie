@@ -22,7 +22,8 @@
 <img width="1512" alt="스크린샷 2023-05-21 오후 9 15 18" src="https://github.com/hj213/roomie/assets/79979227/2ff811c9-ca65-4569-ba0c-5cb23f719682">
 <img width="1512" alt="스크린샷 2023-05-21 오후 9 15 28" src="https://github.com/hj213/roomie/assets/79979227/245ff9ce-5fba-40bf-8906-448fb27dd7a0">
 <img width="1511" alt="스크린샷 2023-05-21 오후 9 05 22" src="https://github.com/hj213/roomie/assets/79979227/d14559b7-04a8-45f3-8e74-264eb9f4dbf6">
-<img width="1511" alt="스크린샷 2023-05-21 오후 9 05 50" src="https://github.com/hj213/roomie/assets/79979227/96232cda-dbec-449c-87ae-293cb4359d90">
+<img width="1512" alt="스크린샷 2023-05-24 오전 3 38 55" src="https://github.com/hj213/roomie/assets/79979227/83832223-ed37-4143-970a-9dcac2da1dc0">
+<img width="1509" alt="스크린샷 2023-05-24 오전 3 39 06" src="https://github.com/hj213/roomie/assets/79979227/e14907f2-fa89-4627-8bc3-8392675df786">
 
 
 
