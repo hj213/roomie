@@ -12,6 +12,9 @@
         *{
           font-family: 'Noto Sans KR', sans-serif;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -178,16 +181,30 @@
           padding-left: 3px;
 
         }
+        .info span:nth-child(5){
+          color: #A09797;
+          font-size: 11px;
+          padding-left: 3px;
+
+        }
         .tags{
           margin: 15px 5px 0px 0px;
           font-size: 11px;
           color: white;
+          overflow-x: auto;
+          white-space: nowrap;
+        
+        }
+        .tags::-webkit-scrollbar {
+          display: none;
         }
         .tags span{
           background-color: #57cc95;
           padding:5px 8px 5px 8px;
-          margin-right: 3px;
+          margin: 0px 3px 5px 0px;
           border-radius: 20px;
+          display: inline-block;
+          flex-shrink: 0;
         }
 
         /* detailProfile */
@@ -203,6 +220,12 @@
         .picture #arrow ::after{
           color:white
         }
+        .scrollDiv{
+          overflow-y: scroll;
+        }
+        /* .scrollDiv::-webkit-scrollbar {
+          display: none;
+        } */
         .textDiv{
           margin:0px 20px 0px 20px;
         }
@@ -225,13 +248,24 @@
         .detailTags{
           margin: 0px 20px 10px 20px;
           position: relative;
+         
         }
         .detailTags span{
+          display: inline-block;
           font-size: 13px;
           border-radius: 15px;
+          height: 20px;
           border:1px solid #01BBA1;
           padding: 3px 8px 3px 8px;
-          margin-right: 5px;
+          margin: 0px 5px 10px 0px;
+        }
+        .extraMessage{
+          margin: 0px 20px 0px 20px;
+        }
+        .message{
+          height:auto;
+          margin-bottom: 20px;
+          font-size: 14px;
         }
         .buttons{
           margin: 0px 20px 0px 20px;
@@ -332,9 +366,11 @@
                     var mapOptions = {
                     center: location === '혜화' ? { lat: 37.587, lng: 127.001 }
                           : location === '성수' ? { lat: 37.5447, lng: 127.0578 }
-                          : { lat: 37.5882, lng: 126.9936 },
-
-                    zoom: 14,
+                          : location === '강남' ? { lat: 37.4967, lng: 127.0630 }
+                          : location === '신촌' ? { lat: 37.5651, lng: 126.9400 }
+                          : { lat: 37.5510, lng: 126.9909}, //기본 남산공원
+ 
+                    zoom: 12,
                     };
 
                     const innerHeight = window.innerHeight;
@@ -345,7 +381,10 @@
                     mapStyle.style.height = `${innerHeight - 103.5}px`;
 
                     var locations = [
-                      { lat: 37.5882, lng: 126.9936, number: 1 },
+                      { lat: 37.5882, lng: 126.9936, number: 1 }, //혜화
+                      { lat: 37.5447, lng: 127.0578, number: 1  }, //성수
+                      { lat: 37.5651, lng: 126.9400, number: 1  }, //신촌
+                      { lat: 37.4967, lng: 127.0630, number: 1  }, //강남
                     ];
             
                     initSearchBox(map);
@@ -392,8 +431,15 @@
                     context.textAlign = "center";
                     context.textBaseline = "middle";
                     context.fillText(1, iconWidth / 2, iconHeight / 2);
+
+                    var img = new Image();
+                    img.src = "image/맹구.jpeg";
+                    img.onload = function() {
+                      context.drawImage(img, 0, 0, iconWidth, iconHeight);
+                    };
             
                     return canvas.toDataURL();
+
                   }
             
                   function addMarkers(map, locations) {
@@ -401,7 +447,7 @@
                       return new google.maps.Marker({
                         position: { lat: location.lat, lng: location.lng },
                         icon: {
-                          url: createClusterIcon(location.number),
+                          url: 'createClusterIcon(location.number)',
                           size: new google.maps.Size(30, 30),
                           origin: new google.maps.Point(0, 0),
                           anchor: new google.maps.Point(15, 15),
@@ -409,7 +455,6 @@
                         title: "Number: " + location.number,
                       });
                     });
-            
               
                     var markerCluster = new MarkerClusterer(map, markers, {
                       imagePath:
@@ -421,14 +466,28 @@
                           url: createClusterIcon(1), 
                           width: 30,
                           height: 30,
-                        
+                          text:'10',
                           textSize: 0,
                           anchor: [15, 15]
                         }
                       ]
                     });
-            }
+
+
+                    markerCluster.addListener('clusterclick', function(cluster) {
+                      var center = cluster.getCenter();
+                      const lat = center.lat();
+                      const location = (lat == 37.5882 ) ? '혜화' : (lat == 37.5447 ) ? '성수' :(lat == 37.5651 ) ? '신촌' :'강남' 
+                      
+                      profileList(location);
+
+                      map.setCenter(center);
+                      map.setZoom(15);
+
+                    });
             
+                }
+                
             
             
                 </script>

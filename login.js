@@ -5,15 +5,19 @@ let login = [
         id: 'hj213',
         password:'hj213',
         name: '윤효정',
-        nickname: '',
+        nickname: '효효',
         age: '24세',
         gender:'여성',
         img: 'image/hd.png',
         location: '',
+        roomGender: '',
         style: '',
-        buget: [],
-        roomgender: '',
-        pattern:[],
+        deposit:'',
+        budget:'',
+        smoking:'',
+        roomSmoking:'',
+        sleeping:'',
+        roomSleeping:''
     },
     {
         index:1,
@@ -25,7 +29,15 @@ let login = [
         age: '24세',
         gender:'여성',
         img: 'image/p1.jpg',
-        location: '혜화',
+        location: '',
+        roomGender: '',
+        style: '',
+        deposit:'',
+        budget:'',
+        smoking:'',
+        roomSmoking:'',
+        sleeping:'',
+        roomSleeping:''
         
     },{
         index:2,
@@ -37,7 +49,15 @@ let login = [
         age: '24세',
         gender:'여성',
         img: 'image/p2.jpg',
-        
+        location: '',
+        roomGender: '',
+        style: '',
+        deposit:'',
+        budget:'',
+        smoking:'',
+        roomSmoking:'',
+        sleeping:'',
+        roomSleeping:''
     },
     {
         index:3,
@@ -49,7 +69,15 @@ let login = [
         age: '24세',
         gender:'여성',
         img: 'image/p3.jpg',
-
+        location: '',
+        roomGender: '',
+        style: '',
+        deposit:'',
+        budget:'',
+        smoking:'',
+        roomSmoking:'',
+        sleeping:'',
+        roomSleeping:''
     }
 ]
 
@@ -86,7 +114,7 @@ function loginfun(){
                 if(localData.checked == 0){
                     window.location.href = "link1.html";
                 }else{
-                    window.location.href = "main수정6.html";
+                    window.location.href = "main.html";
                 }
                 
             }

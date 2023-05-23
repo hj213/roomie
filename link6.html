@@ -8,12 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
   <title>설문페이지</title>
   <style>
-    body {
+    *{
       font-family: 'Noto Sans KR', sans-serif;
-      margin: 0;
-      padding: 0;
     }
 
+    body {
+      margin: 80px 0px 0px 0px;
+      padding: 0;
+    }
     .link-button {
       display: inline-block;
       padding: 10px 20px;
@@ -23,68 +25,12 @@
       text-decoration: none;
       border-radius: 2px;
       transition: background-color 0.2s;
-      font-family: 'Noto Sans KR', sans-serif;
       font-size: small;
       
     }
 
     .link-button:hover {
       background-color: rgba(30, 36, 201, 0.618);
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    header {
-      background: white;
-      color: #292929;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
-      border-bottom: 1px solid rgb(238, 238, 238);
-    }
-
-
-    .login-btn {
-      background-color: #f8f8ec;
-      border: none;
-      border-radius: 3px;
-      color: #333;
-      cursor: pointer;
-      margin-left: 0.5rem;
-      padding: 0.57rem 1rem;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .menu {
-      display: flex;
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      justify-content: space-evenly;
-    }
-
-    .menu-item {
-      margin-right: 1rem;
-    }
-
-    .menu-link {
-      color: rgb(64, 64, 64);
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-    }
-
-    .menu-link:hover {
-      text-decoration: none;
-      color: blueviolet;
-      font-family: 'Noto Sans KR', sans-serif;
-    }
-
-    .main{
-      flex: 3;
-      margin-right: 2rem;
-      font-family: 'Noto Sans KR', sans-serif;
     }
 
     .container1 {
@@ -92,7 +38,6 @@
       height: auto;
       align-items: center;
       justify-content: space-around;
-      font-family: 'Noto Sans KR', sans-serif;
       display: flex;
       font-size: larger;
       text-align: center;
@@ -104,21 +49,10 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      font-family: 'Noto Sans KR', sans-serif;
       font-size: larger;
       
     }
 
-    .title{
-      margin: 10px 0px 10px 30px;
-      font-weight: 700;
-      font-size: 35px;
-      background: #00f260; /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #00f260, #0575e6); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #00f260, #0575e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-      color: transparent;
-      -webkit-background-clip: text;
-    }
     label {
       font-size: 20px;
       line-height: 2rem;
@@ -157,25 +91,6 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1 class="title">Roomie</h1>
-    <ul class="menu">
-        <li class="menu-item"><a class="menu-link" href="link1.html">Home</a></li>
-        <li class="menu-item"><a class="menu-link" href="#">About</a></li>
-        <li class="menu-item"><a class="menu-link" href="#">Services</a></li>
-        <li class="menu-item"><a class="menu-link" href="#">Blog</a></li>
-        <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
-    </ul>
-    <div class="login-form">
-        <button class="login-btn">Logout</button>
-    </div>
-  </header>
-  <nav>
-
-  </nav>
-  <div class="container1">
-    <br/>
-  </div>
   <div class="container1">
     <div>
       <img src="Image/Group 101.svg" />
@@ -183,9 +98,9 @@
   </div>
   <div class="container1">
     <div>
-      <p>잘 알겠습니다! 이제 마지막 단계에요! </p>
-      <p>원하시는 룸메이트의 MBTI 유형을 선택해 볼까요?</p>
-      <p>이번에도 복수선택이 가능해요! 원하시는건 다 눌러주세요!</p>
+      <p>잘 알겠습니다! </p>
+      <p>희망하는 룸메이트의 MBTI 유형을 선택해 볼까요?</p>
+      <p>이번에도 복수선택이 가능해요! 원하시는 건 다 눌러주세요!</p>
     </div>
   </div>
   <div class="container2">
@@ -222,24 +137,32 @@
         <input type="checkbox" name="option8" value="j" />
         <span>J</span>
       </label>
-        <a href="main수정6.html" id='linkButton' class="link-button">결과보기</a>
+      <a class="link-button">NEXT</a>
     </div>
   </div>
   <script>
-    const links = document.querySelectorAll('input');
+    const checkboxs = document.querySelectorAll('input');
     const mbti = [];
-    links.forEach(link =>{
-      link.addEventListener('click',()=>{
-        mbti.push(link.value);
-        })
-      }
-    )
+
     document.querySelector('.link-button').addEventListener('click',()=>{
+      checkboxs.forEach(checkbox =>{
+        if(checkbox.checked){
+          mbti.push(checkbox.value);
+        }
+      })
+
+      if (mbti.length == 0){
+        alert('항목을 선택해주세요.');
+        return
+      } 
+
       const userIndex = localStorage.getItem('index');
       const localData = JSON.parse(localStorage.getItem(userIndex));
       localData.mbti = mbti;
       localData.checked = 1;
       localStorage.setItem(userIndex, JSON.stringify(localData));
+
+      window.location.href ='link7.html';
     })
   </script>
 </body>

@@ -15,10 +15,9 @@
     body {
       margin: 80px 0px 0px 0px;
       padding: 0;
-
     }
 
-    .link-button {
+    .link-button1 {
       display: inline-block;
       padding: 50px 100px;
       background-color: #0db270;
@@ -26,11 +25,28 @@
       text-decoration: none;
       border-radius: 4px;
       transition: background-color 0.2s;
-
+      
     }
 
-    .link-button:hover {
+    .link-button2 {
+      display: inline-block;
+      padding: 50px 100px;
+      background-color: #0db270;
+      color: whitesmoke;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+      
+    }
+
+    .link-button2:hover {
       background-color: rgba(30, 36, 201, 0.618);
+      color: rgb(0, 0, 0);
+    }
+
+    .link-button1:hover {
+      background-color: rgba(30, 36, 201, 0.618);
+      color: rgb(0, 0, 0);
     }
 
     .container1 {
@@ -52,6 +68,7 @@
       font-size: larger;
       
     }
+
   </style>
 </head>
 <body>
@@ -62,29 +79,23 @@
   </div>
   <div class="container1">
     <div>
-      <p>환영합니다! ROOMIE를 찾아주셔서 감사해요. 지금부터 시작해 볼까요?</p>
-      <p>우선, 선호하는 지역을 골라주세요!</p>
+      <p>잘 알겠습니다!</p>
+      <p>그렇다면 상대방은 흡연을 하길 원하시나요?</p>
     </div>
   </div>
   <div class="container2">
     <div>
-      <a href="link2.html" class="link-button">Gangnam</a>
-      <a href="link2.html" class="link-button">Hyehwa</a>
-      <a href="link2.html" class="link-button">Sinchon</a>
-      <a href="link2.html" class="link-button">Seongsu</a>
+      <a href="link9.html" class="link-button1">흡연</a>
+      <a href="link9.html" class="link-button2">비흡연</a>
     </div>
   </div>
   <script>
-      const links = document.querySelectorAll('.link-button');
+      const links = document.querySelectorAll('a');
       links.forEach(link =>{
         link.addEventListener('click',()=>{
           const userIndex = localStorage.getItem('index');
           const localData = JSON.parse(localStorage.getItem(userIndex));
-
-          localData.location = (link.textContent == 'Gangnam') ? '강남': 
-                                (link.textContent == 'Hyehwa') ? '혜화':
-                                (link.textContent == 'Sinchon') ? '신촌': '성수';
-
+          localData.roomSmoking = link.textContent;
           localStorage.setItem(userIndex, JSON.stringify(localData));
           })
         }
